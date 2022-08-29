@@ -14,5 +14,7 @@ public class HelloServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		PrintWriter out = response.getWriter();
 		out.println("Hello world!!!");
+		
+		// 테스트용 주석
 	}
 }
