@@ -34,7 +34,7 @@ public class PostMethodQuiz11 extends HttpServlet {
 		out.print("<html><head><title>사용자 정보 확인</title></head><body>");
 			if (!userId.equals(userMap.get("id"))) {
 				out.print("<b>id가 일치하지 않습니다.</b>");
-			} else if(!password.equals(userMap.get("password"))) {
+			} else if(password.equals(userMap.get("password")) == false) {
 				out.print("<b>password가 일치하지 않습니다.</b>");
 			} else {
 				out.print("<b>" + userMap.get("name") + "님 환영합니다</b>");
