@@ -16,8 +16,28 @@
 
 </head>
 <body>
-
-
+	<% 
+		int number1 = Integer.parseInt(request.getParameter("number"));
+		int number2 = Integer.parseInt(request.getParameter("number2"));
+		String option = request.getParameter("calculation");
+		
+		
+		double sum = 0;
+		if (option.equals("+")) {
+			sum = number1 + number2;
+		} else if (option.equals("-")) {
+			sum = number1 - number2;
+		} else if (option.equals("*")) {
+			sum = number1 * number2;
+		} else if (option.equals("/")) {
+			sum = number1 / number2;
+		}
+	
+	%>
+	<div class="container">
+		<h1>계산 결과</h1>
+		<div class="display-3"><%= number1 %> <%= option %> <%= number2 %> = <span class="text-primary"><%= sum %></span></div>
+	</div>
 
 </body>
 </html>

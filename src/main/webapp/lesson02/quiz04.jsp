@@ -17,18 +17,18 @@
 </head>
 <body>
 	<div class="container">
-	<form method="post" action="/lesson02/quiz04.jsp">
+	<form method="post" action="/lesson02/quiz04_1.jsp">
 		<h1>사칙 연산 계산기</h1>
 		<div class="d-flex">
-			<input type="text" name="number">
-			<select name="calculation">
+			<input type="text" name="number" class="form-control col-2 mr-2">
+			<select name="calculation" class="form-control col-1 mr-2">
 				<option>*</option>
 				<option>/</option>
 				<option>+</option>
 				<option>-</option>
 			</select>
-			<input type="text" name="number2">
-			<input type="submit" class="btn btn-success">
+			<input type="text" name="number2" class="form-control col-2 mr-2">
+			<input type="submit" class="btn btn-success" value="계산하기">
 		</div>
 	</form>
 	
