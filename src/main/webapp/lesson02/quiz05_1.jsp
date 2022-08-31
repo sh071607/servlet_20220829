@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>계산기</title>
+<title>길이 변환</title>
 <!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<!-- bootstrap CDN link -->
@@ -16,39 +16,43 @@
 
 </head>
 <body>
-	<% 
-		int number1 = Integer.parseInt(request.getParameter("number"));
-		int number2 = Integer.parseInt(request.getParameter("number2"));
-		String option = request.getParameter("calculation");
-		
-		String printOption = null;
-		double sum = 0;
-		if (option.equals("+")) {
-			sum = number1 + number2;
-			printOption = "+";
-		} else if (option.equals("-")) {
-		sum = number1 - number2;
-			printOption = "-";
-		} else if (option.equals("*")) {
-			sum = number1 * number2;
-			printOption = "X";
-		} else if (option.equals("/")) {
-			sum = number1 / number2;
-			printOption = "/";
-		}
-			
+	<%	
+		int cm = Integer.parseInt(request.getParameter("cm"));
+		String[] lengthArr = request.getParameterValues("length");
 		
 	%>
+	
+	
 	<div class="container">
-		<h1>계산 결과</h1>
-		<div class="display-3">
+	<h1>길이 변환 결과</h1>
+	<h3><%=cm %>cm</h3>
+	<hr>
+	<h2>
 		<%
-		out.print(number1 + " " + printOption + " " + number2 + " = ");
-		%>
-		
-		
-		<span class="text-primary"><%= sum %></span></div>
+		for (String length : lengthArr) {
+			if (length.equals("inch")) {
+				double inch = cm * 0.393701;
+				out.print(inch + "in<br>");
+			} else if (length.equals("yard")) {
+				double yard = cm * 0.0109361;
+				out.print(yard + "yd<br>");
+			} else if (length.equals("feet")) {
+				double feet = cm * 0.0328084;
+				out.print(feet + "ft<br>");
+			} else if (length.equals("meter")) {
+				double meter = cm / 100.0;
+				out.print(meter + "m<br>");
+			}
+		}
+			
+		%>	
+	</h2>
 	</div>
+		
+		
+		
+		
+
 
 </body>
 </html>

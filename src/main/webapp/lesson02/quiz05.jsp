@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>계산기</title>
+<title>길이 변환</title>
 <!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<!-- bootstrap CDN link -->
@@ -16,38 +16,24 @@
 
 </head>
 <body>
-	<% 
-		int number1 = Integer.parseInt(request.getParameter("number"));
-		int number2 = Integer.parseInt(request.getParameter("number2"));
-		String option = request.getParameter("calculation");
-		
-		String printOption = null;
-		double sum = 0;
-		if (option.equals("+")) {
-			sum = number1 + number2;
-			printOption = "+";
-		} else if (option.equals("-")) {
-		sum = number1 - number2;
-			printOption = "-";
-		} else if (option.equals("*")) {
-			sum = number1 * number2;
-			printOption = "X";
-		} else if (option.equals("/")) {
-			sum = number1 / number2;
-			printOption = "/";
-		}
-			
-		
-	%>
 	<div class="container">
-		<h1>계산 결과</h1>
-		<div class="display-3">
-		<%
-		out.print(number1 + " " + printOption + " " + number2 + " = ");
-		%>
-		
-		
-		<span class="text-primary"><%= sum %></span></div>
+		<form method="post" action="/lesson02/quiz05_1.jsp">
+		<h1>길이 변환</h1>
+		<div class="d-flex align-items-end">
+			<input type="text" class="form-control col-2" name="cm">
+			<span>cm</span>
+		</div>
+		<div>
+			<label for="inch">인치</label>
+			<input type="checkbox" id="inch" name="length" value="inch">
+			<label for="yard">야드</label>
+			<input type="checkbox" id="yard" name="length" value="yard">
+			<label for="ft">피트</label>
+			<input type="checkbox" id="ft" name="length" value="feet">
+			<label for="m">미터</label>
+			<input type="checkbox" id="m" name="length" value="meter">
+		</div>
+		<input type="submit" class="btn btn-success" value="변환하기">
 	</div>
 
 </body>

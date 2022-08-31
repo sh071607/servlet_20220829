@@ -1,10 +1,12 @@
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>계산기</title>
+<title>장보기 목록</title>
 <!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<!-- bootstrap CDN link -->
@@ -16,38 +18,34 @@
 
 </head>
 <body>
-	<% 
-		int number1 = Integer.parseInt(request.getParameter("number"));
-		int number2 = Integer.parseInt(request.getParameter("number2"));
-		String option = request.getParameter("calculation");
-		
-		String printOption = null;
-		double sum = 0;
-		if (option.equals("+")) {
-			sum = number1 + number2;
-			printOption = "+";
-		} else if (option.equals("-")) {
-		sum = number1 - number2;
-			printOption = "-";
-		} else if (option.equals("*")) {
-			sum = number1 * number2;
-			printOption = "X";
-		} else if (option.equals("/")) {
-			sum = number1 / number2;
-			printOption = "/";
-		}
-			
-		
+	<%
+	List<String> goodsList = Arrays.asList(new String[]{ 
+		    "저지방 우유", "요플레 4개", "딸기 1팩", "삼겹살 300g", "생수 6개", "주방 세제"
+		});
 	%>
+	
 	<div class="container">
-		<h1>계산 결과</h1>
-		<div class="display-3">
+		<h1 class="text-center">장보기 목록</h1>
+		<table class="table text-center">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>품목</th>
+			</tr>
+		</thead>
+		<tbody>
 		<%
-		out.print(number1 + " " + printOption + " " + number2 + " = ");
+			for (int i = 0; i <= goodsList.size(); i++) {	
 		%>
-		
-		
-		<span class="text-primary"><%= sum %></span></div>
+		<tr>
+			<td><%= i + 1 %></td>
+			<td><%= goodsList.get(i) %></td>
+		</tr>
+		<%
+			}
+		%>
+		</tbody>
+		</table>
 	</div>
 
 </body>
