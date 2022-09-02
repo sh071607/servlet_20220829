@@ -21,41 +21,16 @@
 
 </head>
 <body>
-	<%
-	List<Map<String, Object>> list = new ArrayList<>();
-    Map<String, Object> map = new HashMap<String, Object>() {{ put("name", "버거킹"); put("menu", "햄버거"); put("point", 4.3); } };
-    list.add(map);
-    map = new HashMap<String, Object>() {{ put("name", "BBQ"); put("menu", "치킨"); put("point", 3.8); } };
-    list.add(map);
-    map = new HashMap<String, Object>() {{ put("name", "교촌치킨"); put("menu", "치킨"); put("point", 4.1); } };
-    list.add(map);
-    map = new HashMap<String, Object>() {{ put("name", "도미노피자"); put("menu", "피자"); put("point", 4.5); } };
-    list.add(map);
-    map = new HashMap<String, Object>() {{ put("name", "맥도날드"); put("menu", "햄버거"); put("point", 3.8); } };
-    list.add(map);
-    map = new HashMap<String, Object>() {{ put("name", "BHC"); put("menu", "치킨"); put("point", 4.2); } };
-    list.add(map);
-    map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
-    list.add(map);
-	
-	%>
-
-
 	<div class="container">
-		<h1>메뉴 검색</h1>
-		<div class="d-flex align-items-center">
-			<input type="text" class="form-control col-2">
-			<input type="checkbox" id="out">
-			<label for="out">4점 이하 제외</label>
-		</div> 
-			<input type="submit" class="btn btn-success" value="검색">
-	
+		<form method="post" action="/lesson02/quiz07_1.jsp">
+			<h1>메뉴 검색</h1>
+			<div class="d-flex align-items-center">
+				<input type="text" name="menu" class="form-control col-2">
+				<input type="checkbox" id="check" name="check">
+				<label for="check">4점 이하 제외</label>
+			</div> 
+				<input type="submit" class="btn btn-success" value="검색">
+		</form>
 	</div>
-	<%
-	
-	
-	
-	%>
-
 </body>
 </html>

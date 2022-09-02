@@ -1,12 +1,10 @@
-<%@page import="java.util.Arrays"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>장보기 목록</title>
+<title>템플릿</title>
 <!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<!-- bootstrap CDN link -->
@@ -16,41 +14,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+	<style>
+	/* stylesheet */
+	header {height: 50px;}
+	aside {width:15%; height:900px;}
+	.right {width:85%; height:900px;}
+	.contents {height:90%;}
+	footer {height:10%;}
+	
+	</style>
+
 </head>
 <body>
-	<%
-	List<String> goodsList = Arrays.asList(new String[]{ 
-		    "저지방 우유", "요플레 4개", "딸기 1팩", "삼겹살 300g", "생수 6개", "주방 세제"
-		});
-	%>
-	
-	<div class="container">
-		<h1 class="text-center mt-4">장보기 목록</h1>
-		<table class="table text-center">
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>품목</th>
-				</tr>
-			</thead>
-			<tbody>
-			<%
-				List<String> goodList = Arrays.asList(new String[]{ 
-					"저지방 우유", "요플레 4개", "딸기 1팩", "삼겹살 300g", "생수 6개", "주방 세제"
-				});
-			
-				for (int i = 0; i < goodsList.size(); i++) {
-			%>
-				<tr>
-					<td><%= i + 1 %></td>
-					<td><%= goodsList.get(i) %></td>
-				</tr>
-			<%
-				}
-			%>
-			</tbody>
-		</table>
+	<div id="wrap">
+		<jsp:include page="header.jsp"/>
+		<div class="d-flex">
+			<jsp:include page="menu.jsp"/>
+			<div class="right bg-secondary">
+				<%
+					String contentName = "content2.jsp";
+				%>
+				<jsp:include page="<%= contentName %>"/>
+				<jsp:include page="footer.jsp">
+			</div>
+		</div>
 	</div>
-
 </body>
 </html>
