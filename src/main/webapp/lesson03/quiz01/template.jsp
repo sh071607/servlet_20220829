@@ -16,9 +16,7 @@
 <style>
 /* stylesheet */
 	header {height:50px; font-size:30px;}
-	.logo {color:red;}
 	nav {height:50px;}
-	.contents {height:900px;}
 	footer {height:50px;}
 </style>
 </head>
@@ -27,9 +25,9 @@
 		<jsp:include page="logo.jsp" />
 		<jsp:include page="menu.jsp" />
 		<div class="contents">
-		
+		<jsp:include page="terrestrial.jsp" />
 		</div>
-			<footer class="bg-primary"></footer>
+		<jsp:include page="footer.jsp" />
 		
 		
 	</div>

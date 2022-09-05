@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<header class="bg-success text-center text-danger">
- Sk BroadBand IPTV
-</header>
+<footer class="bg-primary text-center">Copyright 2022. marondal All Rights Reserved</footer>

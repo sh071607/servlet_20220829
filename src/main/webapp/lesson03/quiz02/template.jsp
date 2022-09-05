@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>템플릿</title>
+<title>Melong</title>
 <!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<!-- bootstrap CDN link -->
@@ -13,31 +13,27 @@
     <!-- jquery slim 제거-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+/* stylesheet */
+header {height:50px;}
+.logo {height:50px; font-size: 30px;}
+nav {height:50px;}
+section {height:800px;}
+footer {height:50px;}
 
-  <style>
-  	#wrap {width:100%; height:900px;}
-  	header {height:50px;}
-  	aside {width:15%; height:900px; margin:0;}
-  	.right {width:85%;}
-  	.content {height:90%;}
-  	footer {height:10%;}
-  </style>
+
+</style>
 </head>
 <body>
-
-	<div id="wrap">
+	<div id="wrap" class="container">
 		<jsp:include page="header.jsp" />
-		<div class="d-flex">
-			<jsp:include page="menu.jsp" />
-			<div class="right">
-				<%
-					String contentName = "content2.jsp";
-				%>
-				<jsp:include page="<%=contentName%>" />
-				<jsp:include page="footer.jsp" />
-			</div>
-		</div>
+		<jsp:include page="menu.jsp" />
+		<section>
+			<article class="bg-info h-50"></article>
+			<article class="bg-warning h-50"></article>
+		</section>
+		<jsp:include page="footer.jsp" />
 	</div>
+
 </body>
 </html>
-

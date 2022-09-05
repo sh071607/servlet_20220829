@@ -42,8 +42,12 @@
     list.add(map);
     map = new HashMap<String, String>() {{ put("ch", "121"); put("name", "KBSN 스포츠"); put("category", "스포츠"); } };
     list.add(map);
+    
+    String category = request.getParameter("category");
+
+    
 %>
-<section class="content1 bg-info">
+<section class="content bg-info">
 	<table class="table text-center">
 		<thead>
 			<tr>
@@ -55,14 +59,49 @@
 		<tbody>
 			<%
 			for (Map<String, String> strlist : list) {
-				if()
-			%>
+				if(strlist.get("category").equals(category)) {
+					if(strlist.get("category").equals("지상파")) {
+				%>
 			<tr>
 				<td><%= strlist.get("ch") %></td>
 				<td><%= strlist.get("name") %></td>
 				<td><%= strlist.get("category") %></td>
 			</tr>
-			<%
+				<% 	
+					} else if (strlist.get("category").equals("드라마")) {
+				%>
+			<tr>
+				<td><%= strlist.get("ch") %></td>
+				<td><%= strlist.get("name") %></td>
+				<td><%= strlist.get("category") %></td>
+			</tr>
+				<%
+					} else if (strlist.get("category").equals("예능")) {
+				%>
+			<tr>
+				<td><%= strlist.get("ch") %></td>
+				<td><%= strlist.get("name") %></td>
+				<td><%= strlist.get("category") %></td>
+			</tr>
+				<%
+					} else if (strlist.get("category").equals("영화")) {
+				%>
+			<tr>
+				<td><%= strlist.get("ch") %></td>
+				<td><%= strlist.get("name") %></td>
+				<td><%= strlist.get("category") %></td>
+			</tr>
+				<%
+					} else if (strlist.get("category").equals("스포츠")) {
+				%>
+			<tr>
+				<td><%= strlist.get("ch") %></td>
+				<td><%= strlist.get("name") %></td>
+				<td><%= strlist.get("category") %></td>
+			</tr>
+				<%
+					}
+				}		
 			}
 		%>
 		</tbody>
