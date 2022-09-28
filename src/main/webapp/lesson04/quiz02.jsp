@@ -1,3 +1,6 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.mysql.cj.xdevapi.Result"%>
+<%@page import="com.test.common.MysqlService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,26 +17,48 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<style>
-/* stylesheet */
-	header {height:50px; font-size:30px;}
-	nav {height:50px;}
-	footer {height:50px;}
-</style>
 </head>
 <body>
-	<div id="wrap" class="container">
-		<jsp:include page="logo.jsp" />
-		<jsp:include page="menu.jsp" />
-		<div class="contents">
-		<jsp:include page="terrestrial.jsp" />
-		</div>
-		<jsp:include page="footer.jsp" />
-		
-		
+	<%
+	// db연결
+	MysqlService ms = MysqlService.getInstance();
+	ms.connect();
+	// select 데이터 가져오기 
+	String selectQuery = "select * from `favorite` order by `id` desc";
+	ResultSet result = ms.select(selectQuery);
+	%>
+	
+	<div class="container">
+		<h1 class="text-center">즐겨찾기 목록</h1>
+		<table class="table text-center">
+			<thead>
+				<tr>
+					<th>사이트명</th>
+					<th>사이트 주소</th>
+					<th>삭제</th>
+				</tr>
+			</thead>
+			<tbody>
+			<%
+				while (result.next()) {
+			%>
+			 	<tr>
+			 		<td><%= result.getString("name") %></td>
+			 		<td>
+			 			<a href="<%= result.getString("url") %>" target="_blank"><%= result.getString("url") %></a>
+			 		</td>
+			 		<td>
+			 		<a href="/lesson04/quiz02_delete?id=<%= result.getInt("id") %>" class="btn btn-danger">삭제하기</a>
+			 		</td>
+			 	</tr>
+			<%		
+				}
+			%>
+			</tbody>
+		</table>
 	</div>
-	
-	
-	
+	<%
+		ms.disconnect();	// db 연결해제
+	%>
 </body>
 </html>

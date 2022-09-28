@@ -1,3 +1,4 @@
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,20 +19,17 @@
 header {height:50px;}
 .logo {height:50px; font-size: 30px;}
 nav {height:50px;}
-section {height:800px;}
 footer {height:50px;}
 
 
 </style>
 </head>
 <body>
+	
 	<div id="wrap" class="container">
 		<jsp:include page="header.jsp" />
 		<jsp:include page="menu.jsp" />
-		<section>
-			<article class="bg-info h-50"></article>
-			<article class="bg-warning h-50"></article>
-		</section>
+		<jsp:include page="content1.jsp" />
 		<jsp:include page="footer.jsp" />
 	</div>
 

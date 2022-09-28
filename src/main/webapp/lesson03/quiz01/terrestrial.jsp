@@ -59,49 +59,17 @@
 		<tbody>
 			<%
 			for (Map<String, String> strlist : list) {
-				if(strlist.get("category").equals(category)) {
-					if(strlist.get("category").equals("지상파")) {
+				if(category != null && strlist.get("category").equals(category) == false) {
+					continue;
+				}	
 				%>
 			<tr>
 				<td><%= strlist.get("ch") %></td>
 				<td><%= strlist.get("name") %></td>
 				<td><%= strlist.get("category") %></td>
 			</tr>
-				<% 	
-					} else if (strlist.get("category").equals("드라마")) {
-				%>
-			<tr>
-				<td><%= strlist.get("ch") %></td>
-				<td><%= strlist.get("name") %></td>
-				<td><%= strlist.get("category") %></td>
-			</tr>
-				<%
-					} else if (strlist.get("category").equals("예능")) {
-				%>
-			<tr>
-				<td><%= strlist.get("ch") %></td>
-				<td><%= strlist.get("name") %></td>
-				<td><%= strlist.get("category") %></td>
-			</tr>
-				<%
-					} else if (strlist.get("category").equals("영화")) {
-				%>
-			<tr>
-				<td><%= strlist.get("ch") %></td>
-				<td><%= strlist.get("name") %></td>
-				<td><%= strlist.get("category") %></td>
-			</tr>
-				<%
-					} else if (strlist.get("category").equals("스포츠")) {
-				%>
-			<tr>
-				<td><%= strlist.get("ch") %></td>
-				<td><%= strlist.get("name") %></td>
-				<td><%= strlist.get("category") %></td>
-			</tr>
-				<%
-					}
-				}		
+		<% 	
+				
 			}
 		%>
 		</tbody>

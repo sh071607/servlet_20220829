@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>즐겨찾기 추가</title>
 <!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<!-- bootstrap CDN link -->
@@ -14,26 +14,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<style>
-/* stylesheet */
-	header {height:50px; font-size:30px;}
-	nav {height:50px;}
-	footer {height:50px;}
-</style>
 </head>
 <body>
-	<div id="wrap" class="container">
-		<jsp:include page="logo.jsp" />
-		<jsp:include page="menu.jsp" />
-		<div class="contents">
-		<jsp:include page="terrestrial.jsp" />
-		</div>
-		<jsp:include page="footer.jsp" />
-		
-		
+	<div class="container">
+		<h1>즐겨찾기 추가</h1>
+		<form method="post" action="/lesson04/quiz02_insert">
+			<label for="name">사이트명:</label>
+			<input type="text" class="form-control col-3" id="name" name="name">
+			
+			<label for="url">사이트 주소: </label>
+			<input type="text" class="form-control col-6" id="url" name="url">
+			
+			<input type="submit" class="btn btn-success mt-3" value="추가">
+		</form>
 	</div>
-	
-	
-	
 </body>
 </html>
